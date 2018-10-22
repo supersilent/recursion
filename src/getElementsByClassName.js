@@ -9,7 +9,7 @@ var getElementsByClassName = function(className) {
   let initLocation = document.body;
   let findElements = function (location) {
     if (location !== null) {
-      if (location.classList && location.classList[0] === className) {
+      if (location.classList && [...location.classList].includes(className)) {
         resultElements.push(location);
       }
       for (let e of location.childNodes) {
@@ -19,4 +19,4 @@ var getElementsByClassName = function(className) {
   };
   findElements (initLocation);
   return resultElements;
-};
+}; 
